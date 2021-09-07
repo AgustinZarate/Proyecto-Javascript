@@ -19,11 +19,12 @@ class Producto {
 
 /* Arrays */
 /* Productos */
-const camisetaTitular = new Producto("titular", "azul y rojo", 10, 800)
-const camisetaSuplente = new Producto("suplente", "blanco", 15, 700)
+
 
 /* Camisetas */
 const camisetas = [];
+camisetas.push(new Producto("titular", "azul y rojo", 10, 800))
+camisetas.push(new Producto("suplente", "blanco", 15, 700))
 camisetas.push(new Producto("arquero", "negra", 5, 500))
 const indumentarias = []
 indumentarias.push(new Producto("bolso", "negro", 3, 500))
@@ -37,16 +38,50 @@ accesorios.push(new Producto("reloj", "negro", 2, 1500))
 
 /* Funciones para el pedido del usuario, Multiplicar cuando el usuario elija la cantidad de productos
 y divida cuando el usuario elija la cantidad de cuotas */
-let pedido = 0
+/* let pedido = 0
 function pedidoUsuario(valor, pedido) { 
     pedidoUsuario = valor * pedido
 }
 function planDePago(valor, cuotas) {
     pedido = valor / cuotas
+} */
+
+
+for (const camiseta of camisetas) {
+    let contenedor = document.createElement("div");
+    contenedor.innerHTML = `<h3> Camiseta  ${camiseta.nombre}</h3>
+                            <p>  valor: $ : ${camiseta.precio}</p>
+                            <b> en stock ${camiseta.stock}</b>`;
+    document.body.appendChild(contenedor);
 }
 
-/* Interaccion con el usuario */
+class Usuario {
+    constructor(nombre, edad, billetera) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.billetera = billetera;
+    }
+}
 
+
+//DOM
+/* const usuarios = [];
+usuarios.push(new Usuario(prompt("por favor ingrese un nombre"), 23, 100))
+
+const bienvenida = document.createElement("h2")
+bienvenida.innerHTML = `Bienvenido ${usuarios.nombre} a esta tienda virtual`;
+document.body.appendChild(bienvenida); */
+
+
+
+
+
+
+
+
+
+
+// Interaccion con el usuario
 
 
 const descripcion = "elija el numero del apartado para saber el precio: \n" +
@@ -61,10 +96,10 @@ const descripcion = "elija el numero del apartado para saber el precio: \n" +
 
 let opcion = prompt(descripcion)
 
-while (opcion != "esc") {
+while (opcion != "esc") { 0
     switch (opcion) {
         case "1":
-            /* camisetas titular */
+            // camisetas titular
             let cantidadCompra = (parseInt(prompt("las camisetas titulares valen $800, ¿cuantas desean comprar?")));
             if (cantidadCompra <= camisetaTitular.stock) {
                 alert("el precio a abonar por " + cantidadCompra + " camisetas es de " + (camisetaTitular.precio * cantidadCompra))
@@ -97,12 +132,12 @@ while (opcion != "esc") {
             break;
 
         case "2":
-            /* Camisetas Suplentes */
+            // Camisetas Suplentes
             let cantidadCompra1 = (parseInt(prompt("las camisetas titulares valen $800, ¿cuantas desean comprar?")));
             if (cantidadCompra1 <= camisetaSuplente.stock) {
                 alert("el precio a abonar por " + cantidadCompra1 + " camisetas es de " + (CamisetaSuplente.stock * cantidadCompra1))
                 let formaDePago = prompt("desea abonar con 1.efectivo o 2.tarjeta de credito?")
-                /* pago en efectivo */
+                // pago en efectivo
                 if (formaDePago == 1) {
                     let dineroUsuario = parseInt(prompt("Ingrese un valor iguil o mayo a $" + (CamisetaSuplente.stock * cantidadCompra1)))
                     if (dineroUsuario == (CamisetaSuplente.stock * cantidadCompra1)) {
@@ -112,7 +147,7 @@ while (opcion != "esc") {
                     } else if (dineroUsuario < (CamisetaSuplente.stock * cantidadCompra1)) {
                         alert("el monto ingresado es menor al valor de la compra")
                     }
-                    /* Pago en cuotas */
+                    // Pago en cuotas
                 } else if (formaDePago == 2) {
                     let cantidadCuotas = prompt("El valor de su pedido es de $" + (CamisetaSuplente.stock * cantidadCompra1) + "puedes hacerlo en 3 o 6 cuotas sin interes")
                     if (cantidadCuotas == 3) {
@@ -137,3 +172,6 @@ while (opcion != "esc") {
     }
     opcion = prompt(descripcion)
 }
+
+
+ 
