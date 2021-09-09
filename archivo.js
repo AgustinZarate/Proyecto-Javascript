@@ -88,12 +88,11 @@ for (const camiseta of camisetas) {
 let opcion = prompt(descripcion)
 
 while (opcion != "esc") {
-    0
     switch (opcion) {
         case "1":
             // camisetas titular
-            let cantidadCompra = (parseInt(prompt(`actualmente contamos con $(stockCamiseta[0]) as camisetas $(nombreCamiseta[0]) valen $(precioCamiseta[0]), ¿cuantas desean comprar?`)));
-            if (cantidadCompra <= stockCamiseta[0]) {
+            let cantidadCompraTitular = (parseInt(prompt(`actualmente contamos con $(stockCamiseta[0]) as camisetas $(nombreCamiseta[0]) valen $(precioCamiseta[0]), ¿cuantas desean comprar?`)));
+            if (cantidadCompraTitular <= stockCamiseta[0]) {
                 let valorCompra = (precioCamiseta[0] * cantidadCompra);
                 alert(`el precio a abonar por $(cantidadCompra) camisetas es de $(valorCompra) `)
                 let formaDePago = prompt("desea abonar con 1.efectivo o 2.tarjeta de credito?")
@@ -143,8 +142,8 @@ while (opcion != "esc") {
 
         case "2":
             // camisetas suplente
-            let cantidadCompra = (parseInt(prompt(`actualmente contamos con $(stockCamiseta[1]) as camisetas $(nombreCamiseta[1]) valen $(precioCamiseta[1]), ¿cuantas desean comprar?`)));
-            if (cantidadCompra <= stockCamiseta[1]) {
+            let cantidadCompraSuplente = (parseInt(prompt(`actualmente contamos con $(stockCamiseta[1]) as camisetas $(nombreCamiseta[1]) valen $(precioCamiseta[1]), ¿cuantas desean comprar?`)));
+            if (cantidadCompraSuplente <= stockCamiseta[1]) {
                 let valorCompra = (precioCamiseta[1] * cantidadCompra);
                 alert(`el precio a abonar por $(cantidadCompra) camisetas es de $(valorCompra) `)
                 let formaDePago = prompt("desea abonar con 1.efectivo o 2.tarjeta de credito?")
@@ -193,8 +192,8 @@ while (opcion != "esc") {
 
             case "3":
             // camisetas arquero
-            let cantidadCompra = (parseInt(prompt(`actualmente contamos con $(stockCamiseta[3]) as camisetas $(nombreCamiseta[3]) valen $(precioCamiseta[3]), ¿cuantas desean comprar?`)));
-            if (cantidadCompra <= stockCamiseta[3]) {
+            let cantidadCompraArquero = (parseInt(prompt(`actualmente contamos con $(stockCamiseta[3]) as camisetas $(nombreCamiseta[3]) valen $(precioCamiseta[3]), ¿cuantas desean comprar?`)));
+            if (cantidadCompraArquero <= stockCamiseta[3]) {
                 let valorCompra = (precioCamiseta[3] * cantidadCompra);
                 alert(`el precio a abonar por $(cantidadCompra) camisetas es de $(valorCompra) `)
                 let formaDePago = prompt("desea abonar con 1.efectivo o 2.tarjeta de credito?")
@@ -282,7 +281,6 @@ for (i = 0; i < todosLosProductos.length; i++) {
 
 for (i = 0; i < todosLosProductos.length; i++) {
     todosLosProductos[i]
-    //console.log(todosLosProductos[i])
     const productosMenoresA1000 = todosLosProductos[i].filter(function (producto) {
         return producto.precio <= 1000
     });                                              
@@ -291,8 +289,7 @@ for (i = 0; i < todosLosProductos.length; i++) {
 
 for (i = 0; i < todosLosProductos.length; i++) {
     todosLosProductos[i]
-    //console.log(todosLosProductos[i])
-    const productosMenoresA1000 = todosLosProductos[i].filter(function (producto) {
+    const productosMenoresA500 = todosLosProductos[i].filter(function (producto) {
         return producto.precio <= 500
     });                                               
     console.log(productosMenoresA500);
