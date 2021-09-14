@@ -35,7 +35,7 @@ allProductos.push(new Producto("reloj", "negro", 2, 1500, "accesorio"))
 
 
 
-
+//ingresar productos en el DOM
 for (const producto of allProductos) {
     $("#productos").append(`<li class="box">  Producto: ${producto.nombre}
     <p>  valor: $ : ${producto.precio}</p>
@@ -43,25 +43,12 @@ for (const producto of allProductos) {
 }
 
 
+//Filtro de productos en el DOM
 
 
-//console.log(allProductos[i])
-//console.log(productosMenoresA1000.nombre)
-
-/* for (const producto of indumentarias) {
-    $("#productos-indumentaria").append(`<li>  Producto: ${producto.nombre}
-    <p>  valor: $ : ${producto.precio}</p>
-    <b> en stock ${producto.stock}</b></li>`);
-}
-
-for (const producto of accesorios) {
-    $("#productos-accesorios").append(`<li>  Producto: ${producto.nombre}
-    <p>  valor: $ : ${producto.precio}</p>
-    <b> en stock ${producto.stock}</b></li>`);
-} */
-
-let boton = document.getElementById("btn500")
-boton.addEventListener("click", respuestaClick)
+//precio menor a $500
+let boton500 = document.getElementById("btn500")
+boton500.addEventListener("click", respuestaClick500)
 
 
 
@@ -70,7 +57,7 @@ const productosMenoresA500 = allProductos.filter(function (producto) {
 });
 
 
-function respuestaClick() {
+function respuestaClick500() {
     // crea un nuevo div
     // y añade contenido
     var nuevoDiv = document.createElement("div");
@@ -86,7 +73,62 @@ function respuestaClick() {
 
 }
 
+//--------------------
+//precio menor a $700
+let boton700 = document.getElementById("btn700")
+boton700.addEventListener("click", respuestaClick700)
 
+
+
+const productosMenoresA700 = allProductos.filter(function (producto) {
+    return producto.precio <= 700
+});
+
+
+function respuestaClick700() {
+    // crea un nuevo div
+    // y añade contenido
+    var nuevoDiv = document.createElement("div");
+    for (let producto of productosMenoresA700) {
+    
+        $("#productosFiltrados").append(
+    `<li class="box">
+    Producto: ${producto.nombre}
+    <p>  valor: $ : ${producto.precio}</p>
+    <b> en stock ${producto.stock}</b></li>`);;
+        
+    }
+
+}
+
+
+//--------------------
+//precio menor a $1000
+let boton1000 = document.getElementById("btn1000")
+boton1000.addEventListener("click", respuestaClick1000)
+
+
+
+const productosMenoresA1000 = allProductos.filter(function (producto) {
+    return producto.precio <= 1000
+});
+
+
+function respuestaClick1000() {
+    // crea un nuevo div
+    // y añade contenido
+    var nuevoDiv = document.createElement("div");
+    for (let producto of productosMenoresA1000) {
+    
+        $("#productosFiltrados").append(
+    `<li class="box">
+    Producto: ${producto.nombre}
+    <p>  valor: $ : ${producto.precio}</p>
+    <b> en stock ${producto.stock}</b></li>`);;
+        
+    }
+
+}
 
 
 
@@ -98,17 +140,3 @@ for (i = 0; i < allProductos.length; i++) {
     
     
 } */
-
-
-
-
-
-
-   /*  var nuevoContenido = document.createTextNode(`<li class="li">  Producto: ${productosMenoresA1000.nombre}
-                                                <p>  valor: $ : ${productosMenoresA1000.precio}</p>
-                                                <b> en stock ${productosMenoresA1000.stock}</b></li>`);
-    nuevoDiv.appendChild(nuevoContenido); //añade texto al div creado.
-
-    // añade el elemento creado y su contenido al DOM
-    var currentDiv = document.getElementById("div1");
-    document.body.insertBefore(nuevoDiv, currentDiv); */
