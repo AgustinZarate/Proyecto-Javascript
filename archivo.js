@@ -2,11 +2,13 @@
 /* Objetos */
 /* clases */
 class Producto {
-    constructor(nombre, color, stock, precio) {
+
+    constructor(nombre, color, stock, precio, tipo) {
         this.nombre = nombre;
         this.color = color;
         this.stock = stock;
         this.precio = precio;
+        this.tipo = tipo;
     }
     venta(venta) {
         this.stock -= venta;
@@ -21,22 +23,25 @@ class Producto {
 
 /* Camisetas */
 const camisetas = [];
-camisetas.push(new Producto("titular", "azul y rojo", 10, 800))
-camisetas.push(new Producto("suplente", "blanco", 15, 700))
-camisetas.push(new Producto("arquero", "negra", 5, 500))
+camisetas.push(new Producto("Camiseta titular", "azul y rojo", 10, 800, "camiseta"))
+camisetas.push(new Producto("Camista suplente", "blanco", 15, 700, "camiseta"))
+camisetas.push(new Producto("Camiseta arquero", "negra", 5, 500, "camiseta"))
 /* indumentaria */
 const indumentarias = [];
-indumentarias.push(new Producto("bolso", "negro", 3, 500))
-indumentarias.push(new Producto("short", "azul", 5, 400))
-indumentarias.push(new Producto("remera entrenamiento", "azul", 3, 500))
-indumentarias.push(new Producto("medias", "blanco", 7, 600))
+indumentarias.push(new Producto("bolso", "negro", 3, 500, "indumentaria"))
+indumentarias.push(new Producto("short", "azul", 5, 400, "indumentaria"))
+indumentarias.push(new Producto("remera entrenamiento", "azul", 3, 500, "indumentaria"))
+indumentarias.push(new Producto("medias", "blanco", 7, 600, "indumentaria"))
 /* accesorios */
 const accesorios = [];
-accesorios.push(new Producto("barbijo", "azul y rojo", 10, 150))
-accesorios.push(new Producto("reloj", "negro", 2, 1500))
+accesorios.push(new Producto("barbijo", "azul y rojo", 10, 150, "accesorio"))
+accesorios.push(new Producto("reloj", "negro", 2, 1500, "accesorio"))
 /* todos los productos */
 const todosLosProductos = [];
 todosLosProductos.push(camisetas, indumentarias, accesorios);
+
+
+
 
 
 
@@ -71,188 +76,17 @@ const nombreCamiseta = camisetas.map(function (camiseta) {
 
 
 
-// Interaccion con el usuario
 
 
-const descripcion = "elija el numero del apartado para saber el precio: \n" +
-    " 1.Titular \n" +
-    " 2.Suplente \n" +
-    " 3.Arquero \n" +
-    " para salir escriba (esc)";
 
-for (const camiseta of camisetas) {
-    console.log("De: " + camiseta.nombre);
-    console.log("El stock es: " + camiseta.stock);
-}
+//Append de todos los productos
 
-let opcion = prompt(descripcion)
-
-while (opcion != "esc") {
-    switch (opcion) {
-        case "1":
-            // camisetas titular
-            let cantidadCompraTitular = (parseInt(prompt(`actualmente contamos con $(stockCamiseta[0]) as camisetas $(nombreCamiseta[0]) valen $(precioCamiseta[0]), ¿cuantas desean comprar?`)));
-            if (cantidadCompraTitular <= stockCamiseta[0]) {
-                let valorCompra = (precioCamiseta[0] * cantidadCompra);
-                alert(`el precio a abonar por $(cantidadCompra) camisetas es de $(valorCompra) `)
-                let formaDePago = prompt("desea abonar con 1.efectivo o 2.tarjeta de credito?")
-                if (formaDePago == 1) {
-                    function dineroSuficiente() {
-                        let dineroUsuario = parseInt(prompt(`Ingrese un valor igual o mayor a $ $(valorCompra)`))
-                        if (dineroUsuario == valorCompra) {
-                            alert("Perfecto, su compra fue efectuada con exito. Muchas Gracias!")
-                        } else if (dineroUsuario > valorCompra) {
-                            alert(`Perfecto, su compra fue efectuada con exito, su vuelto es de $ (dineroUsuario - valorCompra)`)
-
-                        } else {
-                            alert("Dinero insuficiente")
-                            dineroSuficiente()
-                        }
-
-                    }
-                    dineroSuficiente()
-                } else if (formaDePago == 2) {
-                    /* Funciones para el pedido del usuario, Multiplicar cuando el usuario elija la cantidad de productos
-                    y divida cuando el usuario elija la cantidad de cuotas */
-                    let pedido = 0
-
-                    function pedidoUsuario(valor, pedido) {
-                        pedidoUsuario = valor * pedido
-                    }
-
-                    function planDePago(valor, cuotas) {
-                        pedido = valor / cuotas
-                    }
-                    let cantidadCuotas = prompt("El valor de su pedido es de $" + valorCompra + "solo puedes hacerlo en 3 o 6 cuotas s/interes")
-                    if (cantidadCuotas == 3) {
-                        planDePago(parseInt(valorCompra), cantidadCuotas)
-                        alert("el valor de las cuotas es de $" + pedido)
-                    } else(cantidadCuotas == 6); {
-                        planDePago(parseInt(camisetaTitular.precio * cantidadCompra), cantidadCuotas)
-                        alert("el valor de las cuotas es de $" + pedido)
-                    }
-                }
-                stockCamiseta[0].venta(cantidadCompra)
-                console.log("El estock de las camisetas titulares pasa a ser de: " + camisetaTitular.stock)
-            } else {
-                alert("La cantidad de camisetas supera al stock existente")
-            }
-            break;
-
-
-        case "2":
-            // camisetas suplente
-            let cantidadCompraSuplente = (parseInt(prompt(`actualmente contamos con $(stockCamiseta[1]) as camisetas $(nombreCamiseta[1]) valen $(precioCamiseta[1]), ¿cuantas desean comprar?`)));
-            if (cantidadCompraSuplente <= stockCamiseta[1]) {
-                let valorCompra = (precioCamiseta[1] * cantidadCompra);
-                alert(`el precio a abonar por $(cantidadCompra) camisetas es de $(valorCompra) `)
-                let formaDePago = prompt("desea abonar con 1.efectivo o 2.tarjeta de credito?")
-                if (formaDePago == 1) {
-                    function dineroSuficiente() {
-                        let dineroUsuario = parseInt(prompt(`Ingrese un valor igual o mayor a $ $(valorCompra)`))
-                        if (dineroUsuario == valorCompra) {
-                            alert("Perfecto, su compra fue efectuada con exito. Muchas Gracias!")
-                        } else if (dineroUsuario > valorCompra) {
-                            alert(`Perfecto, su compra fue efectuada con exito, su vuelto es de $ (dineroUsuario - valorCompra)`)
-
-                        } else {
-                            alert("Dinero insuficiente")
-                            dineroSuficiente()
-                        }
-
-                    }
-                    dineroSuficiente()
-                } else if (formaDePago == 2) {
-                    /* Funciones para el pedido del usuario, Multiplicar cuando el usuario elija la cantidad de productos
-                    y divida cuando el usuario elija la cantidad de cuotas */
-                    let pedido = 0
-
-                    function pedidoUsuario(valor, pedido) {
-                        pedidoUsuario = valor * pedido
-                    }
-
-                    function planDePago(valor, cuotas) {
-                        pedido = valor / cuotas
-                    }
-                    let cantidadCuotas = prompt("El valor de su pedido es de $" + valorCompra + "solo puedes hacerlo en 3 o 6 cuotas s/interes")
-                    if (cantidadCuotas == 3) {
-                        planDePago(parseInt(valorCompra), cantidadCuotas)
-                        alert("el valor de las cuotas es de $" + pedido)
-                    } else(cantidadCuotas == 6); {
-                        planDePago(parseInt(camisetaTitular.precio * cantidadCompra), cantidadCuotas)
-                        alert("el valor de las cuotas es de $" + pedido)
-                    }
-                }
-                stockCamiseta[1].venta(cantidadCompra)
-                console.log("El estock de las camisetas titulares pasa a ser de: " + camisetaTitular.stock)
-            } else {
-                alert("La cantidad de camisetas supera al stock existente")
-            }
-            break;
-
-            case "3":
-            // camisetas arquero
-            let cantidadCompraArquero = (parseInt(prompt(`actualmente contamos con $(stockCamiseta[3]) as camisetas $(nombreCamiseta[3]) valen $(precioCamiseta[3]), ¿cuantas desean comprar?`)));
-            if (cantidadCompraArquero <= stockCamiseta[3]) {
-                let valorCompra = (precioCamiseta[3] * cantidadCompra);
-                alert(`el precio a abonar por $(cantidadCompra) camisetas es de $(valorCompra) `)
-                let formaDePago = prompt("desea abonar con 1.efectivo o 2.tarjeta de credito?")
-                if (formaDePago == 1) {
-                    function dineroSuficiente() {
-                        let dineroUsuario = parseInt(prompt(`Ingrese un valor igual o mayor a $ $(valorCompra)`))
-                        if (dineroUsuario == valorCompra) {
-                            alert("Perfecto, su compra fue efectuada con exito. Muchas Gracias!")
-                        } else if (dineroUsuario > valorCompra) {
-                            alert(`Perfecto, su compra fue efectuada con exito, su vuelto es de $ (dineroUsuario - valorCompra)`)
-
-                        } else {
-                            alert("Dinero insuficiente")
-                            dineroSuficiente()
-                        }
-
-                    }
-                    dineroSuficiente()
-                } else if (formaDePago == 2) {
-                    /* Funciones para el pedido del usuario, Multiplicar cuando el usuario elija la cantidad de productos
-                    y divida cuando el usuario elija la cantidad de cuotas */
-                    let pedido = 0
-
-                    function pedidoUsuario(valor, pedido) {
-                        pedidoUsuario = valor * pedido
-                    }
-
-                    function planDePago(valor, cuotas) {
-                        pedido = valor / cuotas
-                    }
-                    let cantidadCuotas = prompt("El valor de su pedido es de $" + valorCompra + "solo puedes hacerlo en 3 o 6 cuotas s/interes")
-                    if (cantidadCuotas == 3) {
-                        planDePago(parseInt(valorCompra), cantidadCuotas)
-                        alert("el valor de las cuotas es de $" + pedido)
-                    } else(cantidadCuotas == 6); {
-                        planDePago(parseInt(camisetaTitular.precio * cantidadCompra), cantidadCuotas)
-                        alert("el valor de las cuotas es de $" + pedido)
-                    }
-                }
-                stockCamiseta[3].venta(cantidadCompra)
-                console.log("El estock de las camisetas titulares pasa a ser de: " + camisetaTitular.stock)
-            } else {
-                alert("La cantidad de camisetas supera al stock existente")
-            }
-            break;
-
-        default:
-            alert("Por favor elija una opcion correcta al colocar 1 (camiseta titular) o 2 (camiseta suplente)")
-            break;
-    }
-    opcion = prompt(descripcion)
-}
-
-
+//----------------------------------------------------------------
 
 
 /*------------------ Filter --------------*/
 /* const camisetaMenorA700 = camisetas.filter(function (camiseta) {
-    return camiseta.precio <= 700 }); */       // <---- en caso de tambien usar .map deberiamos de borrar los ;                                                
+    return camiseta.precio <= 700 }); */ // <---- en caso de tambien usar .map deberiamos de borrar los ;                                                
 //console.log(camisetaMenorA700);
 
 
@@ -270,57 +104,118 @@ while (opcion != "esc") {
 
 
 //.filter productos menores a $700
+
+
+
+
+//append filtro arrays -1000
+for (i = 0; i < todosLosProductos.length; i++) {
+    todosLosProductos[i]
+    const productosMenoresA1000 = todosLosProductos[i].filter(function (producto) {
+        return producto.precio <= 1000
+    });
+    //console.log(productosMenoresA1000);
+    let boton = document.getElementById("btn1000")
+    boton.addEventListener("click", respuestaClick)
+
+    function respuestaClick() {
+        // crea un nuevo div
+        // y añade contenido
+        var newDiv = document.createElement("div");
+        var newContent = document.createTextNode(productosMenoresA1000);
+        newDiv.appendChild(newContent); //añade texto al div creado.
+
+        // añade el elemento creado y su contenido al DOM
+        var currentDiv = document.getElementById("div1");
+        document.body.insertBefore(newDiv, currentDiv);
+    }
+}
+
+
+//append filtro arrays -700
 for (i = 0; i < todosLosProductos.length; i++) {
     todosLosProductos[i]
     //console.log(todosLosProductos[i])
     const productosMenoresA700 = todosLosProductos[i].filter(function (producto) {
         return producto.precio <= 700
     }); // <---- en caso de tambien usar .map deberiamos de borrar los ;                                                
-    console.log(productosMenoresA700);
-}
+    //console.log(productosMenoresA700);
+    let boton = document.getElementById("btn700")
+    boton.addEventListener("click", respuestaClick)
 
-for (i = 0; i < todosLosProductos.length; i++) {
-    todosLosProductos[i]
-    const productosMenoresA1000 = todosLosProductos[i].filter(function (producto) {
-        return producto.precio <= 1000
-    });                                              
-    console.log(productosMenoresA1000);
-}
+    function respuestaClick() {
+        // crea un nuevo div
+        // y añade contenido
+        var newDiv = document.createElement("div");
+        var newContent = document.createTextNode(productosMenoresA700);
+        newDiv.appendChild(newContent); //añade texto al div creado.
 
-for (i = 0; i < todosLosProductos.length; i++) {
-    todosLosProductos[i]
-    const productosMenoresA500 = todosLosProductos[i].filter(function (producto) {
-        return producto.precio <= 500
-    });                                               
-    console.log(productosMenoresA500);
-}
-
-
-
-
-
-class Usuario {
-    constructor(nombre, edad, billetera) {
-        this.nombre = nombre;
-        this.edad = edad;
-        this.billetera = billetera;
+        // añade el elemento creado y su contenido al DOM
+        var currentDiv = document.getElementById("div1");
+        document.body.insertBefore(newDiv, currentDiv);
+        alert(productosMenoresA700)
     }
 }
 
 
-//DOM
-/* const usuarios = [];
-usuarios.push(new Usuario(prompt("por favor ingrese un nombre"), 23, 100))
+//append filtro arrays -500
+for (i = 0; i < todosLosProductos.length; i++) {
+    todosLosProductos[i]
+    const productosMenoresA500 = todosLosProductos[i].filter(function (producto) {
+        return producto.precio <= 500
+    });
+    //console.log(productosMenoresA500);
 
-const bienvenida = document.createElement("h2")
-bienvenida.innerHTML = `Bienvenido ${usuarios.nombre} a esta tienda virtual`;
-document.body.appendChild(bienvenida); */
+    //console.log(productosMenoresA1000);
+    let boton = document.getElementById("btn500")
+    boton.addEventListener("click", respuestaClick)
+
+    function respuestaClick() {
+        // crea un nuevo div
+        // y añade contenido
+        var newDiv = document.createElement("div");
+        var newContent = document.createTextNode(productosMenoresA500);
+        newDiv.appendChild(newContent); //añade texto al div creado.
+
+        // añade el elemento creado y su contenido al DOM
+        var currentDiv = document.getElementById("div1");
+        document.body.insertBefore(newDiv, currentDiv);
+        alert(productosMenoresA500)
+    }
+}
 
 
-/* for (const camiseta of camisetas) {
+
+
+
+
+
+
+
+
+//se cambio
+/* for (i = 0; i < todosLosProductos.length; i++) {
+    
+	todosLosProductos[i]
+for (const producto of todosLosProductos) {
+	let contenedorPadre = document.getElementById(productos)
     let contenedor = document.createElement("div");
-    contenedor.innerHTML = `<h3> Camiseta  ${camiseta.nombre}</h3>
-                            <p>  valor: $ : ${camiseta.precio}</p>
-                            <b> en stock ${camiseta.stock}</b>`;
-    document.body.appendChild(contenedor);
+    contenedor.innerHTML = `<h3> Producto:  ${todosLosProductos[i].nombre}</h3>
+                            <p>  valor: $ : ${todosLosProductos[i].precio}</p>
+                            <b> en stock ${todosLosProductos[i].stock}</b>`;
+                            document.body.appendChild(contenedor);
+}
+} */
+
+/* 
+for (i = 0; i < todosLosProductos.length; i++) {
+    todosLosProductos[i]
+    for (i = 0; i < todosLosProductos.length; i++){
+        for (const producto of todosLosProductos) {
+            $("#productos").append(`<div><h3>  Producto: ${producto.nombre}</h3>
+            <p>  valor: $ : ${producto.precio}</p>
+            <b> en stock ${producto.precio}</b></div>`);
+        }
+    }
+    
 } */
