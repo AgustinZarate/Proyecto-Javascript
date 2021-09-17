@@ -31,12 +31,35 @@ allProductos.push(new Producto("barbijo", "azul y rojo", 10, 150, "accesorio"))
 allProductos.push(new Producto("reloj", "negro", 2, 1500, "accesorio"))
 
 
+//Ingresar datos en el storage
+//session
+sessionStorage.setItem('nombreUsuario', prompt("por favor ingrese su nombre"));
+console.log("Nombre del Usuario: ", sessionStorage.getItem('nombreUsuario') )
+sessionStorage.setItem('edadUsuario', prompt("por favor ingrese su edad"));
+console.log("Edad del Usuario: ", sessionStorage.getItem('edadUsuario') )
 
 
+//local
+const allProductosJSON = JSON.stringify(allProductos)
+localStorage.setItem("allProductos", allProductosJSON);
+//console.log("Productos: ", JSON.parse( localStorage.getItem("allProductos")) )
 
+/* 
+1)transformamos el objeto "allProductos" en JSON, con stringify (transforma el objeto en string)
+2)guardarlo en el localStorage
+3)usar JSON.parse para transformarlo de vuelta a objeto y usarlo correctamente
+*/
 
 //ingresar productos en el DOM
-for (const producto of allProductos) {
+
+//usuario
+let usuario = document.getElementById("usuario");
+let liUsuario = document.createElement("li");
+liUsuario.innerHTML = `<h3>Hola, <b>${sessionStorage.getItem("nombreUsuario")}</b> bienvenido</h3>`;
+    usuario.appendChild(liUsuario);
+
+//ingresar productos en el DOM
+for (const producto of JSON.parse( localStorage.getItem("allProductos"))) {
     $("#productos").append(`<li class="box">  Producto: ${producto.nombre}
     <p>  valor: $ : ${producto.precio}</p>
     <b> en stock ${producto.stock}</b></li>`);
@@ -52,7 +75,7 @@ boton500.addEventListener("click", respuestaClick500)
 
 
 
-const productosMenoresA500 = allProductos.filter(function (producto) {
+const productosMenoresA500 = JSON.parse(localStorage.getItem("allProductos")).filter(function (producto) {
     return producto.precio <= 500
 });
 
@@ -64,7 +87,7 @@ function respuestaClick500() {
     for (let producto of productosMenoresA500) {
     
         $("#productosFiltrados").append(
-    `<li class="box">
+    `<li class="box menor-500">
     Producto: ${producto.nombre}
     <p>  valor: $ : ${producto.precio}</p>
     <b> en stock ${producto.stock}</b></li>`);;
@@ -73,6 +96,7 @@ function respuestaClick500() {
 
 }
 
+
 //--------------------
 //precio menor a $700
 let boton700 = document.getElementById("btn700")
@@ -80,9 +104,10 @@ boton700.addEventListener("click", respuestaClick700)
 
 
 
-const productosMenoresA700 = allProductos.filter(function (producto) {
+const productosMenoresA700 = JSON.parse( localStorage.getItem("allProductos")).filter(function (producto) {
     return producto.precio <= 700
 });
+
 
 
 function respuestaClick700() {
@@ -92,7 +117,7 @@ function respuestaClick700() {
     for (let producto of productosMenoresA700) {
     
         $("#productosFiltrados").append(
-    `<li class="box">
+    `<li class="box menor-700">
     Producto: ${producto.nombre}
     <p>  valor: $ : ${producto.precio}</p>
     <b> en stock ${producto.stock}</b></li>`);;
@@ -109,9 +134,10 @@ boton1000.addEventListener("click", respuestaClick1000)
 
 
 
-const productosMenoresA1000 = allProductos.filter(function (producto) {
+const productosMenoresA1000 = JSON.parse( localStorage.getItem("allProductos")).filter(function (producto) {
     return producto.precio <= 1000
 });
+
 
 
 function respuestaClick1000() {
@@ -121,7 +147,7 @@ function respuestaClick1000() {
     for (let producto of productosMenoresA1000) {
     
         $("#productosFiltrados").append(
-    `<li class="box">
+    `<li class="box menor-1000">
     Producto: ${producto.nombre}
     <p>  valor: $ : ${producto.precio}</p>
     <b> en stock ${producto.stock}</b></li>`);;

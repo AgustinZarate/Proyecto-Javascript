@@ -33,3 +33,26 @@ body {
     margin: 1rem;
     padding: 1rem;
 }
+
+.menor-500 {
+background-color:hotpink;
+}
+.menor-700 {
+background-color: darkseagreen;
+}
+.menor-1000 {
+background-color: dodgerblue;
+}
+
+.navbar {
+    background-color: red;
+    width: 90%;
+    height: 4rem;
+    margin: 0.5rem;
+}
+
+.usuario {
+    list-style: none;
+    border: 1px solid black;
+}
+
