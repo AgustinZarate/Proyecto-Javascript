@@ -11,16 +11,16 @@ body {
 }
 
 .contenido {
-    background-color: green;
     width: 100%;
     height: 100%;
 }
 
-.btn {
+ .btn-carrito {
     background-color: white;
-    width: 1rem;
+    border: 1px solid black;
+/*     width: 1rem;
     height: 1rem;
-    border-radius: 50%;
+    border-radius: 50%; */
 }
 
 
@@ -29,19 +29,23 @@ body {
 }
 
 .box {
+    list-style: none;
     border: 1px solid black;
-    margin: 1rem;
+    margin: 2rem;
     padding: 1rem;
 }
 
 .menor-500 {
-background-color:hotpink;
+display: none;
+background-color: rgb(255, 75, 75);
 }
 .menor-700 {
 background-color: darkseagreen;
+display: none;
 }
 .menor-1000 {
-background-color: dodgerblue;
+background-color: rgb(74, 165, 255);
+display: none;
 }
 
 .navbar {
@@ -56,3 +60,7 @@ background-color: dodgerblue;
     border: 1px solid black;
 }
 
+.imagen-producto {
+    padding-top: 1rem;
+    width: 25%;
+}

@@ -1,3 +1,25 @@
+/*------------- Map ---------------------*/
+//crea un nuevo array a partir de los datos solicitados
+
+//map precio camiseta
+const precioCamiseta = camisetas.map(function (camiseta) {
+    return camiseta.precio
+});
+//map stock camiseta
+const stockCamiseta = camisetas.map(function (camiseta) {
+    return camiseta.stock
+});
+const nombreCamiseta = camisetas.map(function (camiseta) {
+    return camiseta.nombre
+});
+
+//console.log (`Las camisetas en venta son: ${nombreCamisetas} `); 
+//ahora llevar precioCamisetas[0/1/3] al while para usar la variable                                                      
+
+// se va a mostrar en consola el nombre de todas las camisetas
+
+
+
 // Interaccion con el usuario
 
 

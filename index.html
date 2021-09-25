@@ -9,62 +9,114 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 
-        <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Proyecto Javascript - CoderHouse</title>
 </head>
 
 <body>
-    <section class="row" id="navbar">
-        <div class="col navbar">
-            <ul  class="usuario" id="usuario">
-                
-            </ul>
-        </div>
-    </section>
+    <header>
+        <section class="row" id="navbar">
+            <div class="col navbar">
+                <ul class="usuario" id="usuario">
+                </ul>
+            </div>
+        </section>
+    </header>
+
+
+    <main>
         <section class="row">
             <div class="col-4">
-                <aside class="filtros" >
+                <aside class="filtros">
                     <ol>
-                        
+
                         <th> <b>Filtros</b> </th>
                         <li>
                             <label for=""> precios menores a 1000
-                                <input class="btn" type="button" id="btn1000"> 
-                            </label> 
+                                <button class="btn" type="button" id="btn1000">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-filter"
+                                        width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000"
+                                        fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path
+                                            d="M5.5 5h13a1 1 0 0 1 .5 1.5l-5 5.5l0 7l-4 -3l0 -4l-5 -5.5a1 1 0 0 1 .5 -1.5" />
+                                    </svg>
+                                </button>
+
+                            </label>
                         </li>
                         <li>
                             <label for=""> precios menores a 700
-                                <input class="btn" type="button" id="btn700"> 
-                            </label> 
+                                <button class="btn" type="button" id="btn700">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-filter"
+                                        width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000"
+                                        fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path
+                                            d="M5.5 5h13a1 1 0 0 1 .5 1.5l-5 5.5l0 7l-4 -3l0 -4l-5 -5.5a1 1 0 0 1 .5 -1.5" />
+                                    </svg>
+                                </button>
+
+                            </label>
                         </li>
                         <li>
                             <label for=""> precios menores a 500
-                                <input class="btn" type="button" id="btn500">
-                            </label> 
+                                <button class="btn" type="button" id="btn500">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-filter"
+                                        width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000"
+                                        fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path
+                                            d="M5.5 5h13a1 1 0 0 1 .5 1.5l-5 5.5l0 7l-4 -3l0 -4l-5 -5.5a1 1 0 0 1 .5 -1.5" />
+                                    </svg>
+                                </button>
+                            </label>
+                        </li>
+                        <li>
+                            <label for="">
+                                <button class="btn d-flex" type="button" id="limpiarFiltro">
+                                    <p class="me-3">Limpiar filtro</p>
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                        class="icon icon-tabler icon-tabler-filter-off" width="20" height="20"
+                                        viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <line x1="3" y1="3" x2="21" y2="21" />
+                                        <path
+                                            d="M9 5h9.5a1 1 0 0 1 .5 1.5l-4.049 4.454m-.951 3.046v5l-4 -3v-4l-5 -5.5a1 1 0 0 1 .18 -1.316" />
+                                    </svg>
+                                </button>
+                            </label>
                         </li>
                     </ol>
 
-                    <ol id="productosFiltrados">
 
-                    </ol>
                 </aside>
-                
+
             </div>
             <div class="col-8 d-flex">
-                <ul class="contenido borde" id="productos">
+                <ul class="contenido" id="contenedorProductos">
                 </ul>
+                <ol id="productosFiltrados">
+                </ol>
             </div>
 
         </section>
+    </main>
 
 
 
 
 
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<!--     <script src="archivo.js"></script> -->
-    <script src="dom.js"></script>
-<!--     <script src="interaccion.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<!--         <script src="js/dom.js"></script> -->
+<!--         <script src="js/js_sin_uso/interaccion.js"></script> -->
+    <script src="js/ajax.js"></script>
+    <script src="js/clases_y_arrays.js"></script>
+    <script src="js/filtros.js"></script>
+    <script src="js/local_y_session_storage.js"></script>
 </body>
 
 </html>

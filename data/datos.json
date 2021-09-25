@@ -1,0 +1,82 @@
+[
+    {
+        "id":1,
+        "nombre":"Camiseta titular",
+        "color":"azul y rojo",
+        "stock":10,
+        "precio":800,
+        "tipo":"camiseta",
+        "imagen":"/img/camiseta_titular.webp"
+    },
+    {
+        "id":2,
+        "nombre":"Camista suplente",
+        "color":"blanco",
+        "stock":15,
+        "precio":700,
+        "tipo":"camiseta",
+        "imagen":"/img/camiseta_suplente.png"
+    },
+    {
+        "id":3,
+        "nombre":"Camiseta arquero",
+        "color":"negra",
+        "stock":5,
+        "precio":500,
+        "tipo":"camiseta",
+        "imagen":"/img/camiseta_arquero.jpg"
+    },
+    {
+        "id":4,
+        "nombre":"bolso",
+        "color":"negro",
+        "stock":3,
+        "precio":500,
+        "tipo":"indumentaria",
+        "imagen":"/img/bolso.png"
+    },
+    {
+        "id":5,
+        "nombre":"short",
+        "color":"azul",
+        "stock":5,
+        "precio":400,
+        "tipo":"indumentaria",
+        "imagen":"/img/short.jpg"
+    },
+    {
+        "id":6,
+        "nombre":"remera entrenamiento",
+        "color":"azul",
+        "stock":3,
+        "precio":500,
+        "tipo":"indumentaria",
+        "imagen":"/img/remera_entrenamiento.webp"
+    },
+    {
+        "id":7,
+        "nombre":"canilleras",
+        "color":"azul y rojo",
+        "stock":7,"precio":600,
+        "tipo":"indumentaria",
+        "imagen":"/img/canilleras.jpg"
+    },
+    {
+        "id":8,
+        "nombre":"barbijo",
+        "color":"azul y rojo",
+        "stock":10,
+        "precio":150,
+        "tipo":"accesorio",
+        "imagen":"/img/barbijo.jpg"
+    },
+    {
+        "id":9,
+        "nombre":"reloj",
+        "color":"negro",
+        "stock":2,
+        "precio":1500,
+        "tipo":"accesorio",
+        "imagen":"/img/reloj.jpg"
+    }
+]
